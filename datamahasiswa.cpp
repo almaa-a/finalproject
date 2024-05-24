@@ -19,7 +19,31 @@ void errorInput(int &input) {
     }
 }
 
-TreeNode* searchId(TreeNode* root, int id) { // Search node by ID
+treeMahasiswaTI* searchId(treeMahasiswaTI* root, int id) { // Search node by ID
+    if (root == nullptr || root->idNumber == id) {
+        return root;
+    }
+
+    if (id < root->idNumber) {
+        return searchId(root->left, id);
+    } else {
+        return searchId(root->right, id);
+    }
+}
+
+treeMahasiswaSI* searchId(treeMahasiswaSI* root, int id) { // Search node by ID
+    if (root == nullptr || root->idNumber == id) {
+        return root;
+    }
+
+    if (id < root->idNumber) {
+        return searchId(root->left, id);
+    } else {
+        return searchId(root->right, id);
+    }
+}
+
+treeMahasiswaPTI* searchId(treeMahasiswaPTI* root, int id) { // Search node by ID
     if (root == nullptr || root->idNumber == id) {
         return root;
     }
