@@ -19,6 +19,30 @@ void errorInput(int &input) {
     }
 }
 
+TreeNode* searchId(TreeNode* root, int id) { // Search node by ID
+    if (root == nullptr || root->idNumber == id) {
+        return root;
+    }
+
+    if (id < root->idNumber) {
+        return searchId(root->left, id);
+    } else {
+        return searchId(root->right, id);
+    }
+}
+
+int value(const string& namaMahasiswa) { // Membuat ID berdasarkan nama mahasiswa
+    int resultASCII = 0;
+
+    for (char ch : namaMahasiswa) {
+        if (ch != ' ') {
+            resultASCII += (tolower(ch) - 'a' + 1);
+        }
+    }
+
+    return resultASCII;
+}
+
 struct treeMahasiswaTI {
     int valueMahasiswaTI;
     string namaMahasiswaTI;
