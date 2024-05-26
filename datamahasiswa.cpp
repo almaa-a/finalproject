@@ -156,44 +156,32 @@ class dataMahasiswa {
         void tambahDataTI() {
             treeMahasiswaTI* newDataTI = new treeMahasiswaTI();
 
-            int64_t nimMahasiswa;
             float ipMahasiswa;
             string namaMahasiswa;
             string umurMahasiswa;
             string alamatMahasiswa;
 
+            cin.ignore(); // To ignore the leftover newline character from the previous input
+
             cout << "\nNama Mahasiswa: ";
             getline(cin, namaMahasiswa);
 
             cout << "Usia Mahasiswa: ";
-            cin >> umurMahasiswa;            
+            getline(cin, umurMahasiswa);            
 
             cout << "Alamat Mahasiswa: ";
-            cin >> alamatMahasiswa;
+            getline(cin, alamatMahasiswa);
 
             cout << "Masukkan IP Mahasiswa: ";
             cin >> ipMahasiswa;
             errorInputFloat(ipMahasiswa);
-            
-            nimMahasiswa = membuatNim(namaMahasiswa, nimMahasiswa); // Panggil fungsi untuk membuat nim
+    
+            newDataTI->nimMahasiswaTI = membuatNim(namaMahasiswa, newDataTI->nimMahasiswaTI); // Panggil fungsi untuk membuat nim
+            newDataTI->namaMahasiswaTI = namaMahasiswa;
+            newDataTI->umurMahasiswaTI = umurMahasiswa;
+            newDataTI->alamatMahasiswaTI = alamatMahasiswa;
+            newDataTI->ipMahasiswaTI = ipMahasiswa;
 
-            nimMahasiswa, newDataTI->nimMahasiswaTI;
-            namaMahasiswa, newDataTI->namaMahasiswaTI;
-            umurMahasiswa, newDataTI->umurMahasiswaTI;
-            alamatMahasiswa, newDataTI->alamatMahasiswaTI;
-            ipMahasiswa, newDataTI->ipMahasiswaTI;
-
-
-
-
-
-
-            // getline(cin, newDataTI->namaMahasiswaTI);
-            // cin >> newDataTI->umurMahasiswaTI;
-            // cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            // getline(cin, newDataTI->alamatMahasiswaTI);
-            // cin >> newDataTI->ipMahasiswaTI;
-            
             newDataTI->next = nullptr;
 
             if (!headTI) {
@@ -201,11 +189,11 @@ class dataMahasiswa {
             } else {
                 treeMahasiswaTI* temp = headTI;
                 while (temp->next != nullptr) {
-                temp = temp->next;
+                    temp = temp->next;
                 }
-            temp->next = newDataTI;
+                temp->next = newDataTI;
             }
-        
+
             totaldataTI++;
             cout << "Data mahasiswa berhasil ditambahkan.\n";
         }
@@ -213,19 +201,32 @@ class dataMahasiswa {
         void tambahDataSI() {
             treeMahasiswaSI* newDataSI = new treeMahasiswaSI();
 
+            float ipMahasiswa;
+            string namaMahasiswa;
+            string umurMahasiswa;
+            string alamatMahasiswa;
+
+            cin.ignore(); // To ignore the leftover newline character from the previous input
+
             cout << "\nNama Mahasiswa: ";
-            getline(cin, newDataSI->namaMahasiswaSI);
+            getline(cin, namaMahasiswa);
 
             cout << "Usia Mahasiswa: ";
-            cin >> newDataSI->umurMahasiswaSI;
+            getline(cin, umurMahasiswa);            
 
             cout << "Alamat Mahasiswa: ";
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            getline(cin, newDataSI->alamatMahasiswaSI);
+            getline(cin, alamatMahasiswa);
 
             cout << "Masukkan IP Mahasiswa: ";
-            cin >> newDataSI->ipMahasiswaSI;
-            
+            cin >> ipMahasiswa;
+            errorInputFloat(ipMahasiswa);
+    
+            newDataSI->nimMahasiswaSI = membuatNim(namaMahasiswa, newDataSI->nimMahasiswaSI); // Panggil fungsi untuk membuat nim
+            newDataSI->namaMahasiswaSI = namaMahasiswa;
+            newDataSI->umurMahasiswaSI = umurMahasiswa;
+            newDataSI->alamatMahasiswaSI = alamatMahasiswa;
+            newDataSI->ipMahasiswaSI = ipMahasiswa;
+
             newDataSI->next = nullptr;
 
             if (!headSI) {
@@ -245,19 +246,32 @@ class dataMahasiswa {
         void tambahDataPTI() {
             treeMahasiswaPTI* newDataPTI = new treeMahasiswaPTI();
 
+            float ipMahasiswa;
+            string namaMahasiswa;
+            string umurMahasiswa;
+            string alamatMahasiswa;
+
+            cin.ignore(); // To ignore the leftover newline character from the previous input
+
             cout << "\nNama Mahasiswa: ";
-            getline(cin, newDataPTI->namaMahasiswaPTI);
+            getline(cin, namaMahasiswa);
 
             cout << "Usia Mahasiswa: ";
-            cin >> newDataPTI->umurMahasiswaPTI;
+            getline(cin, umurMahasiswa);            
 
             cout << "Alamat Mahasiswa: ";
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            getline(cin, newDataPTI->alamatMahasiswaPTI);
+            getline(cin, alamatMahasiswa);
 
             cout << "Masukkan IP Mahasiswa: ";
-            cin >> newDataPTI->ipMahasiswaPTI;
-            
+            cin >> ipMahasiswa;
+            errorInputFloat(ipMahasiswa);
+    
+            newDataPTI->nimMahasiswaPTI = membuatNim(namaMahasiswa, newDataPTI->nimMahasiswaPTI); // Panggil fungsi untuk membuat nim
+            newDataPTI->namaMahasiswaPTI = namaMahasiswa;
+            newDataPTI->umurMahasiswaPTI = umurMahasiswa;
+            newDataPTI->alamatMahasiswaPTI = alamatMahasiswa;
+            newDataPTI->ipMahasiswaPTI = ipMahasiswa;
+
             newDataPTI->next = nullptr;
 
             if (!headPTI) {
@@ -272,12 +286,11 @@ class dataMahasiswa {
 
             totaldataPTI++;
             cout << "Data mahasiswa berhasil ditambahkan.\n";
-        }
+        }   
 
         void tambahData() {
             while (true) {
                 int prodiPath;
-                int tambahLagi;
 
                 cout << "\nPilih prodi mahasiswa\n";
                 cout << "1) Teknik Informatika\n";
@@ -304,7 +317,7 @@ class dataMahasiswa {
                 }
 
                 cout << "\nApakah Anda ingin menambah data mahasiswa lain? (1: Ya, 0: Tidak)\n> ";
-
+                int tambahLagi;
                 cin >> tambahLagi;
                 errorInput(tambahLagi);
 
@@ -506,3 +519,4 @@ int main() {
 
     return 0;
 }
+
